@@ -1,7 +1,11 @@
-package com.algaworks.algacomments.comment.service.domain.model.service;
+package com.algaworks.algacomments.comment.service.domain.service;
 
+import com.algaworks.algacomments.comment.service.api.client.ModerationClient;
 import com.algaworks.algacomments.comment.service.api.model.CommentInput;
 import com.algaworks.algacomments.comment.service.api.model.CommentOutput;
+import com.algaworks.algacomments.comment.service.api.model.ModerationRequest;
+import com.algaworks.algacomments.comment.service.api.model.ModerationResponse;
+import com.algaworks.algacomments.comment.service.domain.exception.ModerationRejectedException;
 import com.algaworks.algacomments.comment.service.domain.model.Comment;
 import com.algaworks.algacomments.comment.service.domain.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CommentService {
     private final CommentRepository commentRepository;
+    private final ModerationClient moderationClient;
 
     public CommentOutput createComment(CommentInput input) {
         Comment comment = Comment.builder()
@@ -18,12 +23,12 @@ public class CommentService {
                 .author(input.getAuthor())
                 .build();
 
-        //ModerationRequest request = new ModerationRequest(comment.getId(), input.getText());
-        //ModerationResponse response = moderationClient.moderateComment(request);
+        ModerationRequest request = new ModerationRequest(comment.getText(), comment.getId());
+        ModerationResponse response = moderationClient.moderateComment(request);
 
-        //if (!response.isApproved()) {
-          //  throw new ModerationRejectedException(response.getReason());
-       // }
+        if (!response.getApproved()) {
+            throw new ModerationRejectedException(response.getReason());
+        }
 
         Comment savedComment = commentRepository.saveAndFlush(comment);
         return mapToOutput(savedComment);
