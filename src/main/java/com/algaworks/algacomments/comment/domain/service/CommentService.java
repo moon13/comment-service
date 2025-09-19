@@ -1,13 +1,13 @@
-package com.algaworks.algacomments.comment.service.domain.service;
+package com.algaworks.algacomments.comment.domain.service;
 
-import com.algaworks.algacomments.comment.service.api.client.ModerationClient;
-import com.algaworks.algacomments.comment.service.api.model.CommentInput;
-import com.algaworks.algacomments.comment.service.api.model.CommentOutput;
-import com.algaworks.algacomments.comment.service.api.model.ModerationRequest;
-import com.algaworks.algacomments.comment.service.api.model.ModerationResponse;
-import com.algaworks.algacomments.comment.service.domain.exception.ModerationRejectedException;
-import com.algaworks.algacomments.comment.service.domain.model.Comment;
-import com.algaworks.algacomments.comment.service.domain.repository.CommentRepository;
+import com.algaworks.algacomments.comment.api.client.ModerationClient;
+import com.algaworks.algacomments.comment.api.model.CommentInput;
+import com.algaworks.algacomments.comment.api.model.CommentOutput;
+import com.algaworks.algacomments.comment.api.model.ModerationRequest;
+import com.algaworks.algacomments.comment.api.model.ModerationResponse;
+import com.algaworks.algacomments.comment.domain.exception.ModerationRejectedException;
+import com.algaworks.algacomments.comment.domain.model.Comment;
+import com.algaworks.algacomments.comment.domain.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

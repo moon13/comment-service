@@ -1,6 +1,6 @@
-package com.algaworks.algacomments.comment.service.domain.repository;
+package com.algaworks.algacomments.comment.domain.repository;
 
-import com.algaworks.algacomments.comment.service.domain.model.Comment;
+import com.algaworks.algacomments.comment.domain.model.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

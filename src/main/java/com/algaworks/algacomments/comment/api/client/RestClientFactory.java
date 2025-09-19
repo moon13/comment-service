@@ -1,4 +1,4 @@
-package com.algaworks.algacomments.comment.service.api.client;
+package com.algaworks.algacomments.comment.api.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;

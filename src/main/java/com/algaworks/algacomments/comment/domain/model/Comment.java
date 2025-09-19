@@ -1,4 +1,4 @@
-package com.algaworks.algacomments.comment.service.domain.model;
+package com.algaworks.algacomments.comment.domain.model;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;

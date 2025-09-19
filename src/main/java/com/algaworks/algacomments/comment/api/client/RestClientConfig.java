@@ -1,4 +1,4 @@
-package com.algaworks.algacomments.comment.service.api.client;
+package com.algaworks.algacomments.comment.api.client;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

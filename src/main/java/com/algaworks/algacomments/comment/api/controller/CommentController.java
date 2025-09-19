@@ -1,8 +1,8 @@
-package com.algaworks.algacomments.comment.service.api.cotroller;
+package com.algaworks.algacomments.comment.api.controller;
 
-import com.algaworks.algacomments.comment.service.api.model.CommentInput;
-import com.algaworks.algacomments.comment.service.api.model.CommentOutput;
-import com.algaworks.algacomments.comment.service.domain.service.CommentService;
+import com.algaworks.algacomments.comment.api.model.CommentInput;
+import com.algaworks.algacomments.comment.api.model.CommentOutput;
+import com.algaworks.algacomments.comment.domain.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

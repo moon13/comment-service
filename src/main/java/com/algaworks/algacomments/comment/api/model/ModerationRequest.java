@@ -1,4 +1,4 @@
-package com.algaworks.algacomments.comment.service.api.model;
+package com.algaworks.algacomments.comment.api.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

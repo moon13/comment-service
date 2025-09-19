@@ -1,4 +1,4 @@
-package com.algaworks.algacomments.comment.service.domain.exception;
+package com.algaworks.algacomments.comment.domain.exception;
 
 public class ModerationRejectedException extends RuntimeException {
     public ModerationRejectedException(String message) {
