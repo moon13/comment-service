@@ -9,7 +9,12 @@ import com.algaworks.algacomments.comment.domain.exception.ModerationRejectedExc
 import com.algaworks.algacomments.comment.domain.model.Comment;
 import com.algaworks.algacomments.comment.domain.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import com.algaworks.algacomments.comment.domain.exception.CommentNotFoundException;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -42,5 +47,17 @@ public class CommentService {
                 .createdAt(comment.getCreatedAt())
                 .build();
     }
+ 
 
+    public Page<CommentOutput> getAllComments(Pageable pageable) {
+        return commentRepository.findAll(pageable)
+                .map(this::mapToOutput);
+
+    }
+
+    public CommentOutput getCommentById(UUID uuid) {
+        Comment comment = commentRepository.findById(uuid)
+                .orElseThrow(CommentNotFoundException::new);
+        return mapToOutput(comment);
+    }
 }
